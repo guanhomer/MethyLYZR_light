@@ -19,6 +19,13 @@
 # read_length: int64
 # map_qs: int64
 #
+# Key behavior changes vs the original MethyLYZR BAM->Feather script:
+# - Fixes primary-alignment filtering: excludes secondary OR supplementary alignments using
+#     if aln.is_secondary or aln.is_supplementary: continue
+#   (avoids incorrect bitwise-operator logic).
+# - Treats BOTH 5mC and 5hmC calls as "methylation" by merging modbase tags per query position
+#   and taking the max probability across ('C', strand, 'm') and ('C', strand, 'h').
+#
 # Notes:
 # - Requires: pysam, numpy, pyarrow
 # - This implementation computes start_time as seconds from BAM RG[0]['DT'] (no extra tdif rounding).
