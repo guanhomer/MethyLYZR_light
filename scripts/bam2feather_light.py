@@ -36,7 +36,7 @@
 #   - CpGs per read must be <= max_cpgs_per_read (default 10) (reads exceeding this are skipped)
 #
 # Example:
-#   python bam2feather_.py \
+#   python bam2feather_light.py \
 #     -i /path/to/bams \
 #     --sites EPIC_CpGannotation.bed \
 #     -s SAMPLE -o out_feather_file \
