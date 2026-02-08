@@ -1,7 +1,11 @@
 ## Memory-efficient streaming BAM→Feather extraction with corrected alignment filtering and 5mC/5hmC support
 
 This PR refactors the BAM→Feather preprocessing step to make **MethyLYZR** usable on large Nanopore datasets while preserving the existing classifier interface.  
-This implementation was developed in a fork of the repository and is contributed back here as an improved replacement for the original `bam2feather` script.
+The changes were developed in a fork of the repository and are contributed back here as a new, lightweight alternative to the original `bam2feather` implementation.
+
+### New script: `bam2feather_light.py`
+
+This PR introduces a new script, **`bam2feather_light.py`**, which implements a memory-efficient, streaming BAM→Feather conversion and is intended as a drop-in replacement for large datasets.
 
 ### Key changes
 
