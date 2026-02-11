@@ -6,6 +6,14 @@
 # classes from sparse Nanopore methylation profiles.
 #
 # Contact: steigerm@molgen.mpg.de
+# 
+# scores_blocked — Blocked matrix implementation of MethyLYZR scoring
+# scores_blocked computes the weighted class log-likelihoods and the class-specific denominator matrix used in MethyLYZR, using a memory-efficient blocked matrix multiplication (GEMM) strategy.
+# The original implementation constructs the denominator matrix via repeated class-wise recomputation of likelihoods using apply_along_axis, which:
+# - Scales as O(N · C²)
+# - Creates large temporary broadcast arrays
+# - Becomes memory- and CPU-intensive for large N (number of CpGs)
+# scores_blocked performs the mathematically equivalent computation using chunked matrix multiplication, avoiding repeated large allocations and Python-level loops.
 
 import argparse
 import pandas as pd
