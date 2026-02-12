@@ -7,7 +7,7 @@ behavior while significantly improving scalability and robustness.
 
 The lightweight pipeline consists of:
 
--   `bam2feather_light.py` --- streaming BAM → Feather extraction
+-   `scripts/bam2feather_light.py` --- streaming BAM → Feather extraction
 -   `MethyLYZR_light.py` --- memory-efficient classifier backend
 
 Both scripts are fully compatible with existing MethyLYZR model files.
